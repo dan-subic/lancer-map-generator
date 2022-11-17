@@ -14,19 +14,20 @@ import Map from './components/Map.vue'
   <main>
     <TheWelcome />
   </main>-->
-  <div>
-    <Map></Map>
+  <div class="container">
+    <Map class="map"></Map>
   </div>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.container {
+  max-height: 100%;
+  max-width: 100%;
+}
+.map {
+  max-height: 100%;
+  max-width: 100%;
 }
 
 @media (min-width: 1024px) {

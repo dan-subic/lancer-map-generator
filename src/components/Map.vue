@@ -24,8 +24,13 @@ export default {
 </script>
 
 <template>
-  <div>
-    <canvas id="canvas"></canvas>
-  </div>
+  <canvas id="canvas"></canvas>
 </template>
 
+<style scoped>
+
+#canvas {
+  max-height: 100%;
+  max-width: 100%;
+}
+</style>
