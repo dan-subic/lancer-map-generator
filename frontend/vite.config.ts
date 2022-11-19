@@ -13,14 +13,3 @@ export default defineConfig({
     }
   }
 })
-
-export const list_files = function(dir: string): string[] {
-  const fs = require('fs')
-  const results: string[] = []
-  fs.readdirSync(dir).forEach(function(file: string) {
-      results.push(dir + '/' + file)
-  })
-  return results
-}
-
-console.log(list_files('/')) 
