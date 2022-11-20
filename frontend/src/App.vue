@@ -1,5 +1,21 @@
-<script setup lang="ts">
-import Map from './components/Map.vue'
+<script lang="ts">
+
+import {getTiles} from '@/service'
+import Map from '@/components/Map.vue'
+
+export default {
+  mounted() {
+    
+  },
+  components: {
+    Map,
+  },
+  methods: {
+    async getTiles() {
+      console.log((await getTiles()).data)
+    },
+  },
+}
 </script>
 
 <template>
@@ -15,6 +31,7 @@ import Map from './components/Map.vue'
     <TheWelcome />
   </main>-->
   <div class="container">
+    <button @click="getTiles"></button>
     <Map class="map"></Map>
   </div>
 </template>

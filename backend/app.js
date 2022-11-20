@@ -5,6 +5,11 @@ const port = 3000
 const PUBLIC_DIR = '../frontend/public'
 const MAP_DIR = PUBLIC_DIR + '/map_modules/'
 
+app.use((req, res, next) => {
+  res.append('Access-Control-Allow-Origin', ['http://localhost:5173']);
+  next();
+});
+
 app.get('/', (req, res) => {
   res.send(list_files(MAP_DIR + 'tiles'))
 })
