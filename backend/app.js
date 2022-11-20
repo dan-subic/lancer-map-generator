@@ -1,9 +1,11 @@
+const { Console } = require('console');
 const express = require('express')
 const path = require('path');
 const app = express()
 const port = 3000
 
-const PUBLIC_DIR = '../frontend/public'
+const ASSET_DIR = process.env.ASSET_DIR || '../frontend/'
+const PUBLIC_DIR = ASSET_DIR + 'public'
 const MAP_DIR = PUBLIC_DIR + '/map_modules/'
 
 // Append headers
@@ -13,10 +15,10 @@ app.use((req, res, next) => {
 });
 
 // Serve static files
-app.use(express.static(path.join(__dirname, '../frontend/dist')));
+app.use(express.static(path.join(__dirname, ASSET_DIR + 'dist')));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
+  res.sendFile(path.join(__dirname, ASSET_DIR + 'dist/index.html'));
 })
 
 app.get('/tiles', (req, res) => {
@@ -26,6 +28,8 @@ app.get('/tiles', (req, res) => {
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
+  console.log('Asset dir: ', ASSET_DIR)
+  console.log('Looking for assets at directory:', path.join(__dirname, ASSET_DIR))
 })
 
 const list_files = function(dir) {
